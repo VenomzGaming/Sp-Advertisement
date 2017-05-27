@@ -1,0 +1,20 @@
+{
+	"Adverts": [
+		{
+			"type": "say",
+			"message": "Welcome on our server !"
+		},
+		{
+			"type": "say",
+			"message": "The current map is {currentmap}"
+		},
+		{
+			"type": "hint",
+			"message": "Kill them all ! [Friendlyfire : {mp_friendlyfire}]"
+		},
+		{
+			"type": "hud",
+			"message": "The time is {time}"
+		}
+	]
+}
