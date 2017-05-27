@@ -35,12 +35,12 @@ This plugin is a simple advert system for any games in Source-Python. It display
   ]
 }</pre>
 
-<b>Define template variable :</b><br>
+<b>Define template variables :</b><br>
 <pre>
   - {currentmap} : Show current map name
   - {date} : Show current date
   - {time} : Show current time
 </pre>
 <br><br>
-<b>Other variable :</b><br>
-You can also show all cvar of your server, like mp_friendlyfire, mp_roundtimer ...
+<b>Other variables :</b><br>
+You can also show all cvar of your server, like mp_friendlyfire, mp_roundtime ...
