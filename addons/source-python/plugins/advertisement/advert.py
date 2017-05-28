@@ -4,8 +4,6 @@ import datetime
 import random
 import re
 from collections import Counter
-from enum import Enum
-from functools import partial
 from itertools import cycle
 
 from cvars import ConVar

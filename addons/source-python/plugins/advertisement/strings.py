@@ -11,7 +11,6 @@ from translations.strings import LangStrings
 
 from .info import info
 from .configs import _configs
-from .utils import AdvertisementManager, AdvertParser
 
 
 __all__ = (

@@ -5,8 +5,6 @@ from filters.players import PlayerIter
 from listeners import OnLevelInit
 from listeners.tick import Repeat
 from messages import SayText2
-from paths import PLUGIN_DATA_PATH
-from translations.strings import LangStrings
 
 
 from .info import info
