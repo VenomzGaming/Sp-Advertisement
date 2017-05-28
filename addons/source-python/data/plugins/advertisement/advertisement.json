@@ -1,20 +1,24 @@
 {
-	"Adverts": [
-		{
-			"type": "say",
-			"message": "Welcome on our server !"
-		},
-		{
-			"type": "say",
-			"message": "The current map is {currentmap}"
-		},
-		{
-			"type": "hint",
-			"message": "Kill them all ! [Friendlyfire : {mp_friendlyfire}]"
-		},
-		{
-			"type": "hud",
-			"message": "The time is {time}"
-		}
-	]
+  "Adverts": [
+    {
+      "type": "say",
+      "message": "Welcome on {hostname} !",
+      "translation": "say:1"
+    },
+    {
+      "type": "say",
+      "message": "The current map is {currentmap}",
+      "translation": "say:2"
+    },
+    {
+      "type": "hint",
+      "message": "Kill them all ! [Friendlyfire : {mp_friendlyfire}]",
+      "translation": "hint:1"
+    },
+    {
+      "type": "hud",
+      "message": "The time is {time}",
+      "translation": "hud:1"
+    }
+  ]
 }

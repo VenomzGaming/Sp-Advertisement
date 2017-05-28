@@ -20,8 +20,8 @@ with ConfigManager(info.name) as _config:
     _config.section('Advert Config')
 
     _configs['advert_interval'] = _config.cvar(
-        'advert_interval', 3,
-        'Time in minutes between adverts.')
+        'advert_interval', 120,
+        'Time in seconds between adverts.')
 
     _configs['advert_order'] = _config.cvar(
         'advert_order', 0,

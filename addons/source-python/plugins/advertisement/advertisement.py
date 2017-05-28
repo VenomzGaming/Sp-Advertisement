@@ -1,34 +1,29 @@
 ## IMPORTS
 
 from events import Event
+from filters.players import PlayerIter
 from listeners import OnLevelInit
 from listeners.tick import Repeat
-from messages import SayText2, HintText, HudMsg
+from messages import SayText2
 from paths import PLUGIN_DATA_PATH
 from translations.strings import LangStrings
 
 
 from .info import info
 from .configs import _configs
-from .utils import AdvertisementManager, AdvertParser
+from .advert import adverts_list
+from .advert_manager import advert_manager
+from .strings import NOT_FOUND
 
 
 ## GLOBALS
 
-messages = LangStrings('advertisement')
+ADVERTS = adverts_list.find_all
 
-ADVERT_TYPE = {
-    'say' : SayText2,
-    'hint' : HintText,
-    'hud' : HudMsg,
-}
+TIME_BETWEEN_ADVERTS = _configs['advert_interval'].get_int()
 
-MINUTES_BETWEEN_ADVERTS = _configs['advert_interval'].get_int()
 
-# Load all adverts
-advert_manager = AdvertisementManager()
-ADVERTS = advert_manager.adverts
-
+_human_players = PlayerIter('human')
 
 ## GAME EVENT
 
@@ -40,21 +35,9 @@ def _on_level_init(map_name):
 @Repeat
 def _send_advert():
     if not ADVERTS:
-        SayText2(messages['Not Found']).send()
+        SayText2(NOT_FOUND).send()
     else:
         advert = next(ADVERTS)
-        parsed_message = AdvertParser.parse(advert['message'])
-        if advert['type'] not in ADVERT_TYPE:
-            ADVERT_TYPE['say'](parsed_message).send()
-        else:
-            if advert['type'] == 'hud':
-                ADVERT_TYPE[advert['type']](
-                    message=parsed_message,
-                    hold_time=1,
-                    x=-1,
-                    y=-0.7,
-                ).send()
-            else:
-                ADVERT_TYPE[advert['type']](parsed_message).send()
+        advert.send(_human_players)
 
-_send_advert.start(MINUTES_BETWEEN_ADVERTS * 60)
+_send_advert.start(TIME_BETWEEN_ADVERTS)
