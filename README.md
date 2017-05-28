@@ -4,7 +4,7 @@ This plugin is a simple advert system for any games in Source-Python. It display
 # Configuration
 
 <b>Advert interval</b><br>
-<em>Time in minutes between adverts. (Must be an integer)</em><br>
+<em>Time in seconds between adverts. (Must be an integer)</em><br>
 <br>
 <b>Advert order</b><br>
 <em>Define the appearance order of advert.</em>
@@ -18,22 +18,39 @@ This plugin is a simple advert system for any games in Source-Python. It display
   "Adverts": [
     {
       "type": "say",
-      "message": "Welcome on our server !"
+      "message": "Welcome on {hostname} !",
+      "translation": "say:1"
     },
     {
       "type": "say",
-      "message": "The current map is {currentmap}"
+      "message": "The current map is {currentmap}",
+      "translation": "say:2"
     },
     {
       "type": "hint",
-      "message": "Kill them all ! [Friendlyfire : {mp_friendlyfire}]"
+      "message": "Kill them all ! [Friendlyfire : {mp_friendlyfire}]",
+      "translation": "hint:1"
     },
     {
       "type": "hud",
-      "message": "The time is {time}"
+      "message": "The time is {time}",
+      "translation": "hud:1"
     }
   ]
 }</pre>
+The translation attribute must contains the key of advert translation and must refer to a key in 'advertissement_server.ini'.
+If "translation" attribute is defined you are not oblige to write something in "message" key.
+
+<pre>{
+  "Adverts": [
+    {
+      "type": "say",
+      "message": "",
+      "translation": "say:1"
+    }
+  ]
+}
+</pre>
 
 <b>Define template variables :</b><br>
 <pre>
